@@ -135,7 +135,6 @@
             // 
             this.flightSegmentsflowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flightSegmentsflowLayoutPanel.AutoScroll = true;
-            this.flightSegmentsflowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flightSegmentsflowLayoutPanel.Location = new System.Drawing.Point(3, 97);
             this.flightSegmentsflowLayoutPanel.Name = "flightSegmentsflowLayoutPanel";
             this.flightSegmentsflowLayoutPanel.Size = new System.Drawing.Size(1094, 906);

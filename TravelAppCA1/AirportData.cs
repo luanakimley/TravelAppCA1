@@ -95,4 +95,5 @@ public class Airport
     public float lat { get; set; }
     public float lng { get; set; }
     public string country_code { get; set; }
+    public string city { get; set; }
 }
