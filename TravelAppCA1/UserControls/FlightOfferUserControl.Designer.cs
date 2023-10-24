@@ -158,7 +158,7 @@
             this.flightDetailsButton.BackColor = System.Drawing.Color.SteelBlue;
             this.flightDetailsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.flightDetailsButton.ForeColor = System.Drawing.Color.Snow;
-            this.flightDetailsButton.Location = new System.Drawing.Point(810, 233);
+            this.flightDetailsButton.Location = new System.Drawing.Point(861, 233);
             this.flightDetailsButton.Name = "flightDetailsButton";
             this.flightDetailsButton.Size = new System.Drawing.Size(197, 46);
             this.flightDetailsButton.TabIndex = 11;
@@ -182,7 +182,7 @@
             this.Controls.Add(this.departureTime);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FlightOfferUserControl";
-            this.Size = new System.Drawing.Size(1028, 300);
+            this.Size = new System.Drawing.Size(1086, 300);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

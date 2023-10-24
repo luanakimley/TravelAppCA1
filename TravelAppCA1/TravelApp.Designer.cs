@@ -53,6 +53,7 @@
             this.destinationLabel = new System.Windows.Forms.Label();
             this.flightsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.flightDetailsPanel = new System.Windows.Forms.Panel();
+            this.nonStopCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numAdultsForm)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numChildrenForm)).BeginInit();
@@ -64,7 +65,7 @@
             // 
             this.searchFlightButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchFlightButton.ForeColor = System.Drawing.Color.SteelBlue;
-            this.searchFlightButton.Location = new System.Drawing.Point(115, 1144);
+            this.searchFlightButton.Location = new System.Drawing.Point(115, 1250);
             this.searchFlightButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.searchFlightButton.Name = "searchFlightButton";
             this.searchFlightButton.Size = new System.Drawing.Size(624, 84);
@@ -82,7 +83,7 @@
             this.originComboBox.FormattingEnabled = true;
             this.originComboBox.IntegralHeight = false;
             this.originComboBox.ItemHeight = 45;
-            this.originComboBox.Location = new System.Drawing.Point(115, 342);
+            this.originComboBox.Location = new System.Drawing.Point(115, 350);
             this.originComboBox.Margin = new System.Windows.Forms.Padding(5);
             this.originComboBox.Name = "originComboBox";
             this.originComboBox.Size = new System.Drawing.Size(615, 53);
@@ -98,7 +99,7 @@
             this.destinationComboBox.FormattingEnabled = true;
             this.destinationComboBox.IntegralHeight = false;
             this.destinationComboBox.ItemHeight = 45;
-            this.destinationComboBox.Location = new System.Drawing.Point(115, 492);
+            this.destinationComboBox.Location = new System.Drawing.Point(115, 500);
             this.destinationComboBox.Margin = new System.Windows.Forms.Padding(5);
             this.destinationComboBox.Name = "destinationComboBox";
             this.destinationComboBox.Size = new System.Drawing.Size(615, 53);
@@ -110,7 +111,7 @@
             this.departureDatePicker.CalendarFont = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.departureDatePicker.CustomFormat = "";
             this.departureDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.departureDatePicker.Location = new System.Drawing.Point(115, 652);
+            this.departureDatePicker.Location = new System.Drawing.Point(115, 660);
             this.departureDatePicker.MinDate = new System.DateTime(2023, 10, 23, 21, 41, 18, 0);
             this.departureDatePicker.Name = "departureDatePicker";
             this.departureDatePicker.Size = new System.Drawing.Size(615, 50);
@@ -121,7 +122,7 @@
             // 
             this.numAdultsForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numAdultsForm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numAdultsForm.Location = new System.Drawing.Point(115, 815);
+            this.numAdultsForm.Location = new System.Drawing.Point(115, 823);
             this.numAdultsForm.Maximum = new decimal(new int[] {
             9,
             0,
@@ -139,6 +140,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.nonStopCheckBox);
             this.panel1.Controls.Add(this.currencyComboBox);
             this.panel1.Controls.Add(this.currency);
             this.panel1.Controls.Add(this.panel2);
@@ -159,7 +161,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(865, 1321);
+            this.panel1.Size = new System.Drawing.Size(865, 1398);
             this.panel1.TabIndex = 8;
             // 
             // currencyComboBox
@@ -169,7 +171,7 @@
             this.currencyComboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.currencyComboBox.FormattingEnabled = true;
             this.currencyComboBox.IntegralHeight = false;
-            this.currencyComboBox.Location = new System.Drawing.Point(510, 811);
+            this.currencyComboBox.Location = new System.Drawing.Point(510, 819);
             this.currencyComboBox.Name = "currencyComboBox";
             this.currencyComboBox.Size = new System.Drawing.Size(220, 53);
             this.currencyComboBox.TabIndex = 24;
@@ -179,7 +181,7 @@
             this.currency.AutoSize = true;
             this.currency.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.currency.ForeColor = System.Drawing.Color.Snow;
-            this.currency.Location = new System.Drawing.Point(510, 755);
+            this.currency.Location = new System.Drawing.Point(510, 763);
             this.currency.Name = "currency";
             this.currency.Size = new System.Drawing.Size(153, 45);
             this.currency.TabIndex = 23;
@@ -188,7 +190,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Snow;
-            this.panel2.Location = new System.Drawing.Point(461, 774);
+            this.panel2.Location = new System.Drawing.Point(461, 782);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(5, 90);
             this.panel2.TabIndex = 22;
@@ -198,7 +200,7 @@
             this.numChildren.AutoSize = true;
             this.numChildren.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.numChildren.ForeColor = System.Drawing.Color.Snow;
-            this.numChildren.Location = new System.Drawing.Point(279, 755);
+            this.numChildren.Location = new System.Drawing.Point(279, 763);
             this.numChildren.Name = "numChildren";
             this.numChildren.Size = new System.Drawing.Size(146, 45);
             this.numChildren.TabIndex = 21;
@@ -208,7 +210,7 @@
             // 
             this.numChildrenForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numChildrenForm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numChildrenForm.Location = new System.Drawing.Point(284, 815);
+            this.numChildrenForm.Location = new System.Drawing.Point(284, 823);
             this.numChildrenForm.Maximum = new decimal(new int[] {
             9,
             0,
@@ -226,7 +228,7 @@
             this.travelClassGroupBox.Controls.Add(this.economyRadioButton);
             this.travelClassGroupBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.travelClassGroupBox.ForeColor = System.Drawing.Color.Snow;
-            this.travelClassGroupBox.Location = new System.Drawing.Point(115, 906);
+            this.travelClassGroupBox.Location = new System.Drawing.Point(115, 914);
             this.travelClassGroupBox.Name = "travelClassGroupBox";
             this.travelClassGroupBox.Size = new System.Drawing.Size(624, 187);
             this.travelClassGroupBox.TabIndex = 19;
@@ -298,7 +300,7 @@
             this.numAdults.AutoSize = true;
             this.numAdults.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.numAdults.ForeColor = System.Drawing.Color.Snow;
-            this.numAdults.Location = new System.Drawing.Point(115, 755);
+            this.numAdults.Location = new System.Drawing.Point(115, 763);
             this.numAdults.Name = "numAdults";
             this.numAdults.Size = new System.Drawing.Size(117, 45);
             this.numAdults.TabIndex = 15;
@@ -320,7 +322,7 @@
             this.departureDateLabel.AutoSize = true;
             this.departureDateLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.departureDateLabel.ForeColor = System.Drawing.Color.Snow;
-            this.departureDateLabel.Location = new System.Drawing.Point(115, 587);
+            this.departureDateLabel.Location = new System.Drawing.Point(115, 595);
             this.departureDateLabel.Name = "departureDateLabel";
             this.departureDateLabel.Size = new System.Drawing.Size(252, 45);
             this.departureDateLabel.TabIndex = 10;
@@ -331,7 +333,7 @@
             this.originLabel.AutoSize = true;
             this.originLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.originLabel.ForeColor = System.Drawing.Color.Snow;
-            this.originLabel.Location = new System.Drawing.Point(115, 282);
+            this.originLabel.Location = new System.Drawing.Point(115, 290);
             this.originLabel.Name = "originLabel";
             this.originLabel.Size = new System.Drawing.Size(114, 45);
             this.originLabel.TabIndex = 9;
@@ -342,7 +344,7 @@
             this.destinationLabel.AutoSize = true;
             this.destinationLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.destinationLabel.ForeColor = System.Drawing.Color.Snow;
-            this.destinationLabel.Location = new System.Drawing.Point(115, 432);
+            this.destinationLabel.Location = new System.Drawing.Point(115, 440);
             this.destinationLabel.Name = "destinationLabel";
             this.destinationLabel.Size = new System.Drawing.Size(192, 45);
             this.destinationLabel.TabIndex = 8;
@@ -353,7 +355,7 @@
             this.flightsFlowLayoutPanel.AutoScroll = true;
             this.flightsFlowLayoutPanel.Location = new System.Drawing.Point(893, 15);
             this.flightsFlowLayoutPanel.Name = "flightsFlowLayoutPanel";
-            this.flightsFlowLayoutPanel.Size = new System.Drawing.Size(1182, 1294);
+            this.flightsFlowLayoutPanel.Size = new System.Drawing.Size(1182, 1380);
             this.flightsFlowLayoutPanel.TabIndex = 9;
             // 
             // flightDetailsPanel
@@ -362,15 +364,27 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flightDetailsPanel.Location = new System.Drawing.Point(900, 12);
             this.flightDetailsPanel.Name = "flightDetailsPanel";
-            this.flightDetailsPanel.Size = new System.Drawing.Size(1178, 1309);
+            this.flightDetailsPanel.Size = new System.Drawing.Size(1178, 1386);
             this.flightDetailsPanel.TabIndex = 10;
             this.flightDetailsPanel.Visible = false;
+            // 
+            // nonStopCheckBox
+            // 
+            this.nonStopCheckBox.AutoSize = true;
+            this.nonStopCheckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nonStopCheckBox.ForeColor = System.Drawing.Color.Snow;
+            this.nonStopCheckBox.Location = new System.Drawing.Point(318, 1142);
+            this.nonStopCheckBox.Name = "nonStopCheckBox";
+            this.nonStopCheckBox.Size = new System.Drawing.Size(185, 49);
+            this.nonStopCheckBox.TabIndex = 25;
+            this.nonStopCheckBox.Text = "Non stop";
+            this.nonStopCheckBox.UseVisualStyleBackColor = true;
             // 
             // TravelApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2094, 1321);
+            this.ClientSize = new System.Drawing.Size(2094, 1398);
             this.Controls.Add(this.flightsFlowLayoutPanel);
             this.Controls.Add(this.flightDetailsPanel);
             this.Controls.Add(this.panel1);
@@ -414,5 +428,6 @@
         private ComboBox currencyComboBox;
         private Label currency;
         private Panel panel2;
+        private CheckBox nonStopCheckBox;
     }
 }
