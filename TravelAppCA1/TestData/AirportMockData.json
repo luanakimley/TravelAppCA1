@@ -1,0 +1,64 @@
+﻿{
+  "response": [
+    {
+      "name": "Paris Charles de Gaulle Airport",
+      "iata_code": "CDG",
+      "lat": 49.009592,
+      "lng": 2.555675
+    },
+    {
+      "name": "Soekarno-Hatta International Airport",
+      "iata_code": "CGK",
+      "lat": -6.125569,
+      "lng": 106.655530
+    },
+    {
+      "name": "Dublin Airport",
+      "iata_code": "DUB",
+      "lat": 53.426447,
+      "lng": -6.249939
+    },
+    {
+      "name": "Taiwan Taoyuan International Airport",
+      "iata_code": "TPE",
+      "lat": 25.077731,
+      "lng": 121.232822
+    },
+    {
+      "name": "Los Angeles International Airport",
+      "iata_code": "LAX",
+      "lat": 33.942791,
+      "lng": -118.408549
+    },
+    {
+      "name": "John F. Kennedy International Airport",
+      "iata_code": "JFK",
+      "lat": 40.641311,
+      "lng": -73.778139
+    },
+    {
+      "name": "Sydney Kingsford Smith Airport",
+      "iata_code": "SYD",
+      "lat": -33.939922,
+      "lng": 151.175276
+    },
+    {
+      "name": "Beijing Capital International Airport",
+      "iata_code": "PEK",
+      "lat": 40.079956,
+      "lng": 116.603056
+    },
+    {
+      "name": "Dubai International Airport",
+      "iata_code": "DXB",
+      "lat": 25.253152,
+      "lng": 55.365673
+    },
+    {
+      "name": "Heathrow Airport",
+      "iata_code": "LHR",
+      "lat": 51.469604,
+      "lng": -0.451529
+    }
+  ]
+}

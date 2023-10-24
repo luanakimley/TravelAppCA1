@@ -1,0 +1,44 @@
+﻿{
+  "currencies": [
+    {
+      "name": "Canadian Dollar",
+      "code": "CAD"
+    },
+    {
+      "name": "Swiss Franc",
+      "code": "CHF"
+    },
+    {
+      "name": "Chinese Yuan",
+      "code": "CNY"
+    },
+    {
+      "name": "Euro",
+      "code": "EUR"
+    },
+    {
+      "name": "British Pound Sterling",
+      "code": "GBP"
+    },
+    {
+      "name": "Hong Kong Dollar",
+      "code": "HKD"
+    },
+    {
+      "name": "Indonesian Rupiah",
+      "code": "IDR"
+    },
+    {
+      "name": "Malaysian Ringgit",
+      "code": "MYR"
+    },
+    {
+      "name": "Thai Baht",
+      "code": "THB"
+    },
+    {
+      "name": "New Taiwan Dollar",
+      "code": "TWD"
+    }
+  ]
+}
