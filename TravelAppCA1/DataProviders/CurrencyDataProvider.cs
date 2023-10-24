@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System.Net;
 using System.Text.Json;
 
 namespace TravelAppCA1
@@ -22,27 +23,42 @@ namespace TravelAppCA1
                 return mockCurrencyData.currencies;
             }
 
-            string currenciesListUrl = "https://openexchangerates.org/api/currencies.json";
-            var apiClient = new RestClient(currenciesListUrl);
-            var apiRequest = new RestRequest();
-            var appId = "d3eaffb2607c4cd4923cec1d5c94d497";
-
-            apiRequest.AddParameter("app_id", appId);
-
-            var apiResponse = apiClient.Execute(apiRequest);
-
-            Dictionary<string, string> currencyDict = JsonSerializer.Deserialize<Dictionary<string, string>>(apiResponse.Content);
-
-            var result = new
+            try
             {
-                currencies = currencyDict.Select(c => new { name = c.Value, code = c.Key }).ToList()
-            };
+                var apiClient = new RestClient(baseUrl);
+                var apiRequest = new RestRequest();
 
-            string resultJson = JsonSerializer.Serialize(result);
+                apiRequest.AddParameter("app_id", apiKey);
 
-            CurrencyData currencyData = JsonSerializer.Deserialize<CurrencyData>(resultJson);
+                var apiResponse = apiClient.Execute(apiRequest);
 
-            return currencyData.currencies;
+                if (apiResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    Dictionary<string, string> currencyDict = JsonSerializer.Deserialize<Dictionary<string, string>>(apiResponse.Content);
+
+                    var result = new
+                    {
+                        currencies = currencyDict.Select(c => new { name = c.Value, code = c.Key }).ToList()
+                    };
+
+                    string resultJson = JsonSerializer.Serialize(result);
+
+                    CurrencyData currencyData = JsonSerializer.Deserialize<CurrencyData>(resultJson);
+
+                    return currencyData.currencies;
+                }
+                else
+                {
+                    MessageBox.Show("API request failed. Status code: " + apiResponse.StatusCode);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                return null;
+            }
+
         }
     }
 }

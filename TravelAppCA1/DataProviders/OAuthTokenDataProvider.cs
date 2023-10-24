@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System.Net;
 using System.Text.Json;
 
 namespace TravelAppCA1
@@ -9,20 +10,36 @@ namespace TravelAppCA1
 
         public override OAuthResults GetOAuthToken()
         {
-            restRequest.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            try
+            {
+                restRequest.AddHeader("Content-Type", "application/x-www-form-urlencoded");
 
-            string clientId = this.clientId;
-            string clientSecret = this.clientSecret;
+                string clientId = this.clientId;
+                string clientSecret = this.clientSecret;
 
-            restRequest.AddParameter("grant_type", "client_credentials");
-            restRequest.AddParameter("client_id", clientId);
-            restRequest.AddParameter("client_secret", clientSecret);
+                restRequest.AddParameter("grant_type", "client_credentials");
+                restRequest.AddParameter("client_id", clientId);
+                restRequest.AddParameter("client_secret", clientSecret);
 
-            var tokenResponse = restClient.Execute(restRequest);
+                var tokenResponse = restClient.Execute(restRequest);
 
-            OAuthResults oauthResult = JsonSerializer.Deserialize<OAuthResults>(tokenResponse.Content);
+                if (tokenResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    OAuthResults oauthResult = JsonSerializer.Deserialize<OAuthResults>(tokenResponse.Content);
+                    return oauthResult;
+                }
+                else
+                {
+                    MessageBox.Show("API request failed. Status code: " + tokenResponse.Content);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                return null;
+            }
 
-            return oauthResult;
         }
     }
 }

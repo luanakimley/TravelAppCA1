@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System.Net;
 using System.Text.Json;
 
 namespace TravelAppCA1
@@ -27,24 +28,40 @@ namespace TravelAppCA1
                 return mockFlightOfferRootobject.data;
             }
 
-            var restClient = new RestClient(baseUrl);
-            var restRequest = new RestRequest();
+            try
+            {
+                var restClient = new RestClient(baseUrl);
+                var restRequest = new RestRequest();
 
-            restRequest.AddParameter("originLocationCode", originLocationCode);
-            restRequest.AddParameter("destinationLocationCode", destinationLocationCode);
-            restRequest.AddParameter("departureDate", departureDate.ToString("yyyy-MM-dd"));
-            restRequest.AddParameter("adults", numAdults);
-            restRequest.AddParameter("children", numChildren);
-            restRequest.AddParameter("travelClass", GetTravelClassString(travelClass));
-            restRequest.AddParameter("currencyCode", currencyCode);
-            restRequest.AddParameter("nonStop", nonStop.ToString().ToLower());
+                restRequest.AddParameter("originLocationCode", originLocationCode);
+                restRequest.AddParameter("destinationLocationCode", destinationLocationCode);
+                restRequest.AddParameter("departureDate", departureDate.ToString("yyyy-MM-dd"));
+                restRequest.AddParameter("adults", numAdults);
+                restRequest.AddParameter("children", numChildren);
+                restRequest.AddParameter("travelClass", GetTravelClassString(travelClass));
+                restRequest.AddParameter("currencyCode", currencyCode);
+                restRequest.AddParameter("nonStop", nonStop.ToString().ToLower());
 
-            restRequest.AddHeader("Authorization", "Bearer " + apiKey);
-            var apiResponse = restClient.Execute(restRequest);
+                restRequest.AddHeader("Authorization", "Bearer " + apiKey);
+                var apiResponse = restClient.Execute(restRequest);
 
-            FlightOfferRootobject flightOfferRootobject = JsonSerializer.Deserialize<FlightOfferRootobject>(apiResponse.Content);
+                if (apiResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    FlightOfferRootobject flightOfferRootobject = JsonSerializer.Deserialize<FlightOfferRootobject>(apiResponse.Content);
+                    return flightOfferRootobject.data;
+                }
+                else
+                {
+                    MessageBox.Show("API request failed. Status code: " + apiResponse.Content);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                return null;
+            }
 
-            return flightOfferRootobject.data;
         }
 
     }

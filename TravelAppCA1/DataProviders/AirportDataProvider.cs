@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System.Net;
 using System.Text.Json;
 
 namespace TravelAppCA1
@@ -22,18 +23,34 @@ namespace TravelAppCA1
                 return mockAirportRootobject.response;
             }
 
-            string airportDatabaseUrl = baseUrl;
-            var apiClient = new RestClient(airportDatabaseUrl);
-            var apiRequest = new RestRequest();
+            try
+            {
+                string airportDatabaseUrl = baseUrl;
+                var apiClient = new RestClient(airportDatabaseUrl);
+                var apiRequest = new RestRequest();
 
-            apiRequest.AddParameter("api_key", apiKey);
-            apiRequest.AddParameter("_fields", "name,iata_code,lat,lng");
+                apiRequest.AddParameter("api_key", apiKey);
+                apiRequest.AddParameter("_fields", "name,iata_code,lat,lng");
 
-            var apiResponse = apiClient.Execute(apiRequest);
+                var apiResponse = apiClient.Execute(apiRequest);
 
-            AirportRootobject airportRootobject = JsonSerializer.Deserialize<AirportRootobject>(apiResponse.Content);
+                if (apiResponse.StatusCode == HttpStatusCode.OK)
+                {
+                    AirportRootobject airportRootobject = JsonSerializer.Deserialize<AirportRootobject>(apiResponse.Content);
+                    return airportRootobject.response;
+                }
+                else
+                {
+                    MessageBox.Show("API request failed. Status code: " + apiResponse.Content);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                return null;
+            }
 
-            return airportRootobject.response;
         }
     }
 }
