@@ -1,5 +1,4 @@
-﻿
-public class AirportRootobject
+﻿public class AirportRootobject
 {
     public Request request { get; set; }
     public Airport[] response { get; set; }
